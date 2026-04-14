@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>음식 카드</title>
+    <title>내 기술 스택</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-8 bg-gray-100">
-    <h1 class="text-2x1 font-bold mb-6">음식 카드 목록</h1>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-4">내 기술 스택</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {% for food in data %}
-            <div class="bg-white rounded-lg shadow p-4">
-                <h2 class="text-x1 font-bold mb-2">{{ food }} </h2>
-                <p class="text-gray-600">맛있는 음식입니다.</p>
-            </div>
+    <div class="flex gap-2 flex-wrap">
+        {% for skill in data %}
+            {% if skill == "C++" %}
+                <span class="bg-blue-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "HTML" %}
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "CSS" %}
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "JavaScript" %}
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "TypeScript" %}
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "[DB] SQL" %}
+                <span class="bg-purple-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "C" %}
+                <span class="bg-blue-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Rust" %}
+                <span class="bg-blue-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Go" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Kotlin" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Dart" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Swift" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Bash" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Shell" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "Markdown" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "R" %}
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+            {% elif skill == "C#" %}
+            {% else %}
+                <span class="bg-gray-300 px-3 py-1 rounded-full">{{ skill }}</span>
+            {% endif %}
         {% endfor %}
     </div>
+    <form action="/send" method="POST" class="mt-8">
+        <input type="text" name="skill" placeholder="기술 입력" class="border px-3 py-2 rounded">
+        <input type="text" name="level" placeholder="난이도 입력" class="border px-3 py-2 rounded">
+        <button type="submit" class="bg-black text-white px-3 py-2 rounded">전송</button>
+    </form>
 </body>
 </html>
